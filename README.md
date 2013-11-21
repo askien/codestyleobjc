@@ -58,9 +58,9 @@ UIApplication.sharedApplication.delegate;
 **Exemplo:**
 ```objc
 if (user.isHappy) {
-// Do something
+  // Fazer alguma coisa
 } else {
-// Do something else
+  // Fazer outra coisa
 }
 ```
 * Deverá existir exactamente uma linha em branco entre métodos para ajudar na claridade visual e organização. Espaço em branco dentro de métodos deverá separar funcionalidade, mas frequentemente isso é um indicador de que o código deverá residir noutro método.
@@ -111,7 +111,7 @@ Quando um método retorna um parâmetro de erro por referência, faça switch no
 ```objc
 NSError *error;
 if (![self trySomethingWithError:&error]) {
-    // Handle Error
+    // Lidar com erro
 }
 ```
 
@@ -120,7 +120,7 @@ if (![self trySomethingWithError:&error]) {
 NSError *error;
 [self trySomethingWithError:&error];
 if (error) {
-    // Handle Error
+    // Lidar com erro
 }
 ```
 
@@ -145,7 +145,7 @@ Definições de propriedades deverão ser utilizados em vez de variáveis de ins
 **Exemplo:**
 
 ```objc
-@interface NYTSection: NSObject
+@interface IGBSection: NSObject
 
 @property (nonatomic) NSString *headline;
 
@@ -155,7 +155,7 @@ Definições de propriedades deverão ser utilizados em vez de variáveis de ins
 **Não:**
 
 ```objc
-@interface NYTSection : NSObject {
+@interface IGBSection : NSObject {
     NSString *headline;
 }
 ```
@@ -183,7 +183,7 @@ Um prefixo de três letras (e.g. `IGB`) deverá ser sempre utilizado para nomes 
 **Exemplo:**
 
 ```objc
-static const NSTimeInterval NYTArticleViewControllerNavigationFadeAnimationDuration = 0.3;
+static const NSTimeInterval IGBArticleViewControllerNavigationFadeAnimationDuration = 0.3;
 ```
 
 **Não:**
@@ -224,12 +224,12 @@ Métodos `init` deverão ser estruturados da seguinte forma:
 
 ```objc
 - (instancetype)init {
-    self = [super init]; // or call the designated initalizer
+    self = [super init]; // Ou chamar inicializador designado
     if (!self) {
         return self;
     }
 
-    // Custom initialization
+    // Inicialização customizada
     return self;
 }
 ```
@@ -289,9 +289,9 @@ Prefira constantes em vez de literais in-line, ou números mágicos, dado que is
 **Exemplo:**
 
 ```objc
-static NSString * const NYTAboutViewControllerCompanyName = @"The New York Times Company";
+static NSString * const IGBAboutViewControllerCompanyName = @"Infoglobo";
 
-static const CGFloat NYTImageThumbnailHeight = 50.0;
+static const CGFloat IGBImageThumbnailHeight = 50.0;
 ```
 
 **Não:**
@@ -309,9 +309,9 @@ Ao utiliza `enum`s, é recomendado que utilize a nova especificação com tipo s
 **Exemplo:**
 
 ```objc
-typedef NS_ENUM(NSInteger, NYTAdRequestState) {
-    NYTAdRequestStateInactive,
-    NYTAdRequestStateLoading
+typedef NS_ENUM(NSInteger, IGBAdRequestState) {
+    IGBAdRequestStateInactive,
+    IGBAdRequestStateLoading
 };
 ```
 
@@ -322,7 +322,7 @@ Propriedades privadas deverão ser declaraas em extensões de classe (categorias
 **Exemplo:**
 
 ```objc
-@interface NYTAdvertisement ()
+@interface IGBAdvertisement ()
 
 @property (nonatomic, strong) GADBannerView *googleAdView;
 @property (nonatomic, strong) ADBannerView *iAdView;
@@ -375,7 +375,7 @@ if (![someObject boolValue])
 
 ```objc
 if ([someObject boolValue] == NO)
-if (isAwesome == YES) // Never do this.
+if (isAwesome == YES) // Nunca fazer isto.
 ```
 
 -----
