@@ -13,6 +13,7 @@ Aqui estão alguns documentos da Apple que contribuiram para a formação do gui
 
 ## Conteúdo
 
+* [Língua](#language)
 * [Sintaxe de Dot-Notation](#dot-notation-syntax)
 * [Espaçamento](#spacing)
 * [Condicionais](#conditionals)
@@ -35,6 +36,11 @@ Aqui estão alguns documentos da Apple que contribuiram para a formação do gui
 * [Singletons](#singletons)
 * [Projecto Xcode](#xcode-project)
 * [Escuteiro](#boyscout)
+
+## Língua
+
+O código fonte deve ser escrito em inglês americano. Isso inclúi nomes de classes, métodos, variáveis e propriedades e comentários.
+O único lugar onde é aceitável ter texto em português é em strings, e mesmo assim devem estar localizadas com `NSLocalizedString` ou `NSLocalizedStringFromTable`.
 
 ## Sintaxe de Dot-Notation
 
