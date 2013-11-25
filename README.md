@@ -106,7 +106,7 @@ result = a > b ? x = c > d ? c : d : y;
 ```
 
 ## Golden Path
-Ao escrever código condiconal, a marge esquerda do código deve ser o "golden path", ou caminho "feliz".
+Ao escrever código condiconal, a margem esquerda do código deve ser o "golden path", ou caminho "feliz".
 
 **Não:**
 ```objc
@@ -118,13 +118,14 @@ Ao escrever código condiconal, a marge esquerda do código deve ser o "golden p
 }
 ```
 
-Isso é difícil de ler. No lugar, escreva código que falha cedo e falha frequentemente:
+Isso é difícil de ler. No lugar, escreva código que falhe cedo e falhe frequentemente:
 
 **Exemplo:**
 ```objc
-- (void)someMethod
-{
-  if (![someOther boolValue]) return;
+- (void)someMethod {
+  if (![someOther boolValue]) { 
+      return;
+  }
   // Fazer algo importante
 }
 ```
@@ -133,8 +134,7 @@ Um método não deverá ser dividido a meio com uma condição.
 
 **Não:**
 ```objc
-- (void)someMethod
-{
+- (void)someMethod {
   if ([someOther boolValue]) {
     // Fazer algo importante
   } else {
@@ -147,8 +147,7 @@ Isso é difícil de ler de deverá ser reescrito como:
 
 **Exemplo:**
 ```objc
-- (void)someMethod
-{
+- (void)someMethod {
   if ([someOther boolValue]) {
     //  Fazer algo importante
     return;
@@ -161,8 +160,7 @@ Eis uma situação em que uma bisecção é aceitável:
 
 **Exemplo:**
 ```objc
-- (void)someMethod
-{
+- (void)someMethod {
   if ([someOther boolValue]) {
     // Fazer algo importante
   } else {
