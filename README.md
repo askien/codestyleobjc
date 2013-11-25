@@ -4,7 +4,7 @@ Este guia de estilo define as convenções de código da equipa de Aplicativos M
 
 ## Introdução
 
-Aqui estão alguns documentos da Apple que contribuíram para a formação do guia de estilo. Se algo não é mencionado aqui, provavelmente é abrangido em detalho num dos seguintes:
+Aqui estão alguns documentos da Apple que contribuíram para a formação do guia de estilo. Se algo não é mencionado aqui, provavelmente é abrangido em detalhe num dos seguintes:
 
 * [The Objective-C Programming Language](http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ObjectiveC/Introduction/introObjectiveC.html)
 * [Cocoa Fundamentals Guide](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CocoaFundamentals/Introduction/Introduction.html)
@@ -41,12 +41,12 @@ Aqui estão alguns documentos da Apple que contribuíram para a formação do gu
 
 ## Língua
 
-O código fonte deve ser escrito em inglês americano. Isso inclui nomes de classes, métodos, variáveis e propriedades e comentários.
+O código fonte deve ser escrito em inglês americano. Isso inclui nomes de classes, métodos, variáveis, propriedades e comentários.
 O único lugar onde é aceitável ter texto em português é em strings, e mesmo assim devem estar localizadas com `NSLocalizedString` ou `NSLocalizedStringFromTable`.
 
 ## Sintaxe de Dot-Notation
 
-Dot-notation deverá ser **sempre** utilizado para aceder a e alterar propriedades. Notação de chaveta é preferida em todos os outros casos.
+Dot-notation deverá ser **sempre** utilizado para aceder a, e alterar propriedades. Notação de chaveta é preferida em todos os outros casos.
 
 **Por exemplo:**
 ```objc
@@ -78,7 +78,7 @@ if (user.isHappy) {
 
 ## Condicionais
 
-Condicionais deverão utilizar sempre chavetas, mesmo quando poderia ser escrita sem chavetas (e.g., apenas uma linha) para prevenir erros. Esses erros incluem adicionar uma segunda linha com a expectativa de que fará parte do if. Outro erro, [ainda mais perigoso](http://programmers.stackexchange.com/a/16530) pode acontecer em que a linha "dentro" do if é comentada, e a linha seguinte passa a fazer parte do if. Adicionalmente, este estilo é mais consistente e mais fácil de ler rapidamente.
+Condicionais deverão utilizar sempre chavetas, mesmo quando podem ser escritos sem chavetas (e.g., apenas uma linha), para prevenir erros. Esses erros incluem adicionar uma segunda linha com a expectativa de que fará parte do `if`. Outro erro, [ainda mais perigoso](http://programmers.stackexchange.com/a/16530) pode acontecer quando a linha "dentro" do `if` é comentada, e a linha seguinte passa a fazer parte do `if`. Adicionalmente, este estilo é mais consistente e mais fácil de ler rapidamente.
 
 **Exemplo:**
 ```objc
@@ -101,7 +101,7 @@ if (!error) return success;
 
 ### Operador ternário
 
-O operador ternário, ? :, deverá apenas ser utilizado quando aumenta a claridade ou a limpeza de código. Uma condição, normalmente, é tudo o que deve ser calculado. Calcular mais do que uma condição é normalmente mais fácil de ler quando escrito sob a forma de um if, ou refactorado para variáveis de instância. 
+O operador ternário, ? :, deverá apenas ser utilizado quando aumenta a claridade ou a limpeza de código. Uma condição, normalmente, é tudo o que deve ser calculado. Calcular mais do que uma condição é normalmente mais fácil de ler quando escrito sob a forma de um `if`, ou refactorado para variáveis de instância. 
 
 **Exemplo:**
 ```objc
@@ -181,7 +181,7 @@ O objectivo é fazer com que o código na margem esquerda seja o código "espera
 
 ## Processamento de Erros
 
-Quando um método retorna um parâmetro de erro por referência, faça switch no valor retornado, não na variável de erro.
+Quando um método retorna um parâmetro de erro por referência, faça `switch` no valor retornado, não na variável de erro.
 
 **Exemplo:**
 ```objc
@@ -200,7 +200,7 @@ if (error) {
 }
 ```
 
-Alguns dos API's da Apple escrevem lixo no parâmetro de erro (caso não seja nulo) em casos de sucesso, por isso utilizar um switch no erro pode causar falsos negativso (e subsequentes crashes).
+Alguns dos API's da Apple escrevem lixo no parâmetro de erro (caso não seja nulo) em casos de sucesso, por isso utilizar um `switch` no erro pode causar falsos negativos (e subsequentes crashes).
 
 ## Métodos
 
@@ -212,11 +212,11 @@ Nas assinaturas de método, deverá existir um espaço depois do escopo (símbol
 ```
 ## Variáveis
 
-As variávis deverão ser nomeadas da forma mais descritiva possível. Variávis de uma só letra deverão ser evitadas, excepto em ciclos `for()`.
+As variáveis deverão ser nomeadas da forma mais descritiva possível. Variáveis de uma só letra deverão ser evitadas, excepto em ciclos `for()`.
 
 Asteriscos que indicam pointers pertencem à variável, e.g., `NSString *text` não `NSString* text` ou `NSString * text`, excepto no caso de constantes.
 
-Definições de propriedades deverão ser utilizados em vez de variáveis de instância sempre que possível. Acesso directo a variáveis de instância deverá ser evitado, excepto em métodos de inicialização (`init`, `initWithCoder:`, etc…), métodos `dealloc` e em setters and getters escritos à mão. Para mais informações sobre métodos de acesso em inicializadores e dealloc, veja [aqui](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6).
+Definições de propriedades deverão ser utilizadas em vez de variáveis de instância sempre que possível. Acesso directo a variáveis de instância deverá ser evitado, excepto em métodos de inicialização (`init`, `initWithCoder:`, etc…), métodos `dealloc` e em setters e getters escritos à mão. Para mais informações sobre métodos de acesso em inicializadores e dealloc, veja [aqui](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6).
 
 **Exemplo:**
 
@@ -254,7 +254,7 @@ UIButton *settingsButton;
 UIButton *setBut;
 ```
 
-Um prefixo de três letras (e.g. `IGB`) deverá ser sempre utilizado para nomes de classes e constantes, no entanto poderão ser omitidos no caso de nomes de entidade no Core Data. Constantes devem ser em camel-case com todas as palavras com inicial maiúscula, e prefixadas pela classe relacionada para efeitos de clareza.
+Um prefixo de três letras (e.g. `IGB`) deverá ser sempre utilizado para nomes de classes e constantes, no entanto poderão ser omitidos no caso de nomes de entidade no Core Data. Constantes devem ser em camel-case com todas as palavras com inicial maiúscula, e precedidas pela classe relacionada para efeitos de clareza.
 
 **Exemplo:**
 
@@ -268,7 +268,7 @@ static const NSTimeInterval IGBArticleViewControllerNavigationFadeAnimationDurat
 static const NSTimeInterval fadetime = 1.7;
 ```
 
-Propriedades deverão ser escritas em camel-case com a palavra inicial em minúsculas. **Se o Xcode puder sintetizar automaticamente a variável, então deixe-.** Caso contrário, de forma a ser consistente, as variáveis de instância associadas deverão ser escritas em camel-case com a palavra inicial em minúsculas, e um underscore de prefixo. Este é o mesmo formato utilizado pela síntese automática do Xcode.
+Propriedades deverão ser escritas em camel-case com a palavra inicial em minúsculas. **Se o Xcode puder sintetizar automaticamente a variável, então deixe-o.** Caso contrário, de forma a ser consistente, as variáveis de instância associadas deverão ser escritas em camel-case com a palavra inicial em minúsculas, e um underscore de prefixo. Este é o mesmo formato utilizado pela síntese automática do Xcode.
 
 **Exemplo:**
 
@@ -284,7 +284,7 @@ id varnm;
 
 ### Underscores
 
-Quando a utilizar propriedades, variáveis de instância deverão sempre ser acedidas e alteradas utilizando `self.`. Isso quer dizer que todas as propriedades deverão ser visualmente distinctas, dado que todas serão precedidas de `self.`. Variáveis locais não deverão conter underscores.
+Quando utilizar propriedades, variáveis de instância deverão sempre ser acedidas e alteradas utilizando `self.`. Isso quer dizer que todas as propriedades deverão ser visualmente distinctas, dado que todas serão precedidas de `self.`. Variáveis locais não deverão conter underscores.
 
 ## Comentários
 
@@ -294,7 +294,7 @@ Comentários de bloco deverão ser evitados, dado que o código deve-se auto-doc
 
 ## init e dealloc
 
-Métodos `dealloc` deverão ser colocados no início da implementation, imediatamente a seguir aos `@synthesize` e `@dynamic`. `init` deverá ser colocado imediatamente a seguir aos métodos `dealloc` em todas as classes.
+Métodos `dealloc` deverão ser colocados imediatamente a seguir aos inicializaores, que por sua vez seguem os `@synthesize` e `@dynamic`.
 
 Métodos `init` deverão ser estruturados da seguinte forma:
 
@@ -312,7 +312,7 @@ Métodos `init` deverão ser estruturados da seguinte forma:
 
 ## Literais
 
-Literais `NSString`, `NSDictionary`, `NSArray`, e `NSNumber` deverão ser utilizados aquando da criação de instâncias imutáveis desses objectos. Preste atenção para que valores `nil` não sejam passados para literais `NSArray` e `NSDictionary`, já que isso causa um crash.
+Literais `NSString`, `NSDictionary`, `NSArray`, e `NSNumber` deverão ser utilizados aquando da criação de instâncias imutáveis dessas classes. Preste atenção para que valores `nil` não sejam passados para literais `NSArray` e `NSDictionary`, já que isso causa um crash.
 
 **Exemplo:**
 
@@ -373,14 +373,14 @@ static const CGFloat IGBImageThumbnailHeight = 50.0;
 **Não:**
 
 ```objc
-#define CompanyName @"The New York Times Company"
+#define CompanyName @"Infoglobo"
 
 #define thumbnailHeight 2
 ```
 
 ## Tipos Enumerados
 
-Ao utiliza `enum`s, é recomendado que utilize a nova especificação com tipo subjacente porque permite verificação de tipo e o Xcode consegue completar código automaticamente. O SDK inclui uma macro que facilita e encoraja a utlização de tipos subjacentes — `NS_ENUM()`
+Ao utilizar `enum`s, é recomendado que utilize a nova especificação com tipo subjacente porque permite verificação de tipo e o Xcode consegue completar código automaticamente. O SDK inclui uma macro que facilita e encoraja a utlização de tipos subjacentes — `NS_ENUM()`
 
 **Exemplo:**
 
@@ -393,7 +393,7 @@ typedef NS_ENUM(NSInteger, IGBAdRequestState) {
 
 ## Propriedades Privadas
 
-Propriedades privadas deverão ser declaraas em extensões de classe (categorias anónimas) no ficheiro de implementação da classe. Categorias com nome (como `IGBPrivate` ou `private`) nunca deverão ser utilizadas, a menos que estejam realmenet a estender outra classe.
+Propriedades privadas deverão ser declaradas em extensões de classe (categorias anónimas) no ficheiro de implementação da classe. Categorias com nome (como `IGBPrivate` ou `private`) nunca deverão ser utilizadas, a menos que estejam realmente a estender outra classe.
 
 **Exemplo:**
 
@@ -409,14 +409,14 @@ Propriedades privadas deverão ser declaraas em extensões de classe (categorias
 
 ## Nomenclatura de Imagens
 
-Nomes de imagens deverão ser consistentes para preservar organização e a sanidade dos desenvolvedores. Deverão ser nomeadas com camel case do seu propósito, seguido da classe sem prefixo, ou propriedade que estão customizando, seguido de uma descrição de côr ou colocação, e finalmente o seu estado.
+Nomes de imagens deverão ser consistentes para preservar organização e a sanidade dos desenvolvedores. Deverão ser nomeadas com camel-case do seu propósito, seguido da classe sem prefixo, ou propriedade que estão customizando, seguido de uma descrição de côr ou colocação, e finalmente o seu estado.
 
 **Exemplo:**
 
 * `RefreshBarButtonItem` / `RefreshBarButtonItem@2x` and `RefreshBarButtonItemSelected` / `RefreshBarButtonItemSelected@2x`
 * `ArticleNavigationBarWhite` / `ArticleNavigationBarWhite@2x` and `ArticleNavigationBarBlackSelected` / `ArticleNavigationBarBlackSelected@2x`.
 
-Imagens que são utilizadas para um propósito semelhante deverão ser agrupadas em assets de xcode.
+Imagens que são utilizadas para um propósito semelhante deverão ser agrupadas em assets de Xcode.
 
 ## Boleanos
 
@@ -443,15 +443,19 @@ if (someObject == nil) {
 **Para `BOOL`, aqui estão dois exemplos:**
 
 ```objc
-if (isAwesome)
-if (![someObject boolValue])
+if (isAwesome) {
+}
+if (![someObject boolValue]) {
+}
 ```
 
 **Não:**
 
 ```objc
-if ([someObject boolValue] == NO)
-if (isAwesome == YES) // Nunca fazer isto.
+if ([someObject boolValue] == NO) {
+}
+if (isAwesome == YES) { // Nunca fazer isto.
+}
 ```
 
 -----
@@ -478,7 +482,7 @@ Objectos singleton deverão utilizar um padrão thread-safe para criar a instân
    return sharedInstance;
 }
 ```
-Isso previnirá [crashes possíveis](http://cocoasamurai.blogspot.com/2011/04/singletons-your-doing-them-wrong.html).
+Isso prevenirá [crashes possíveis](http://cocoasamurai.blogspot.com/2011/04/singletons-your-doing-them-wrong.html).
 
 ## Projecto Xcode
 
