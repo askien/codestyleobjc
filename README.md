@@ -110,8 +110,7 @@ Ao escrever código condiconal, a margem esquerda do código deve ser o "golden 
 
 **Não:**
 ```objc
-- (void)someMethod
-{
+- (void)someMethod {
   if ([someOther boolValue]) {
     // Fazer algo importante
   }
