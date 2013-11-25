@@ -10,6 +10,8 @@ Aqui estão alguns documentos da Apple que contribuíram para a formação do gu
 * [Cocoa Fundamentals Guide](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CocoaFundamentals/Introduction/Introduction.html)
 * [Coding Guidelines for Cocoa](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html)
 * [iOS App Programming Guide](http://developer.apple.com/library/ios/#documentation/iphone/conceptual/iphoneosprogrammingguide/Introduction/Introduction.html)
+* [CocoaDevCentral: Cocoa Style for Objective-C: Part I](http://cocoadevcentral.com/articles/000082.php)
+* [CocoaDevCentral: Cocoa Style for Objective-C: Part II](http://cocoadevcentral.com/articles/000083.php)
 
 ## Conteúdo
 
