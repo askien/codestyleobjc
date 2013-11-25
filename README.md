@@ -1,10 +1,10 @@
 # Guia de Estilo para Objective-C na Infoglobo
 
-Este guia de estilo define as convenções de código da equipa de Aplicativos Móveis na Infoglobo. O seu feedback é bem vindo.
+Este guia de estilo define as convenções de código da equipa de Aplicativos Móveis na Infoglobo. O seu feedback é bem-vindo.
 
 ## Introdução
 
-Aqui estão alguns documentos da Apple que contribuiram para a formação do guia de estilo. Se algo não é mencionado aqui, provavelmente é abrangido em detalho num dos seguintes:
+Aqui estão alguns documentos da Apple que contribuíram para a formação do guia de estilo. Se algo não é mencionado aqui, provavelmente é abrangido em detalho num dos seguintes:
 
 * [The Objective-C Programming Language](http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ObjectiveC/Introduction/introObjectiveC.html)
 * [Cocoa Fundamentals Guide](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CocoaFundamentals/Introduction/Introduction.html)
@@ -39,7 +39,7 @@ Aqui estão alguns documentos da Apple que contribuiram para a formação do gui
 
 ## Língua
 
-O código fonte deve ser escrito em inglês americano. Isso inclúi nomes de classes, métodos, variáveis e propriedades e comentários.
+O código fonte deve ser escrito em inglês americano. Isso inclui nomes de classes, métodos, variáveis e propriedades e comentários.
 O único lugar onde é aceitável ter texto em português é em strings, e mesmo assim devem estar localizadas com `NSLocalizedString` ou `NSLocalizedStringFromTable`.
 
 ## Sintaxe de Dot-Notation
@@ -76,7 +76,7 @@ if (user.isHappy) {
 
 ## Condicionais
 
-Condicionais deverão utilizar sempre chavetas, mesmo quando poderia ser escrita sem chavetas (e.g., apenas uma linha) para prevenir erros. Esse erros incluem adicionar uma segunda linha com a expectativa de que fará parte do if. Outro erro, [ainda mais perigoso](http://programmers.stackexchange.com/a/16530) pode acontecer em que a linha "dentro" do if é comentada, e a linha seguinte passa a fazer parte do if. Adicionalmente, este estilo é mais consistente e mais fácil de ler rapidamente.
+Condicionais deverão utilizar sempre chavetas, mesmo quando poderia ser escrita sem chavetas (e.g., apenas uma linha) para prevenir erros. Esses erros incluem adicionar uma segunda linha com a expectativa de que fará parte do if. Outro erro, [ainda mais perigoso](http://programmers.stackexchange.com/a/16530) pode acontecer em que a linha "dentro" do if é comentada, e a linha seguinte passa a fazer parte do if. Adicionalmente, este estilo é mais consistente e mais fácil de ler rapidamente.
 
 **Exemplo:**
 ```objc
