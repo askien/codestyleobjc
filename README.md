@@ -17,6 +17,7 @@ Aqui estão alguns documentos da Apple que contribuiram para a formação do gui
 * [Espaçamento](#spacing)
 * [Condicionais](#conditionals)
   * [Operador ternário](#ternary-operator)
+* [Golden Path](#golden-path)
 * [Processamento de Erros](#error-handling)
 * [Métodos](#methods)
 * [Variáveis](#variables)
@@ -33,6 +34,7 @@ Aqui estão alguns documentos da Apple que contribuiram para a formação do gui
 * [Boleanos](#booleans)
 * [Singletons](#singletons)
 * [Projecto Xcode](#xcode-project)
+* [Escuteiro](#boyscout)
 
 ## Sintaxe de Dot-Notation
 
@@ -102,6 +104,75 @@ result = a > b ? x : y;
 ```objc
 result = a > b ? x = c > d ? c : d : y;
 ```
+
+## Golden Path
+Ao escrever código condiconal, a marge esquerda do código deve ser o "golden path", ou caminho "feliz".
+
+**Não:**
+```objc
+- (void)someMethod
+{
+  if ([someOther boolValue]) {
+    // Fazer algo importante
+  }
+}
+```
+
+Isso é difícil de ler. No lugar, escreva código que falha cedo e falha frequentemente:
+
+**Exemplo:**
+```objc
+- (void)someMethod
+{
+  if (![someOther boolValue]) return;
+  // Fazer algo importante
+}
+```
+
+Um método não deverá ser dividido a meio com uma condição.
+
+**Não:**
+```objc
+- (void)someMethod
+{
+  if ([someOther boolValue]) {
+    // Fazer algo importante
+  } else {
+    // Fazer outra coisa importante
+  }
+}
+```
+
+Isso é difícil de ler de deverá ser reescrito como:
+
+**Exemplo:**
+```objc
+- (void)someMethod
+{
+  if ([someOther boolValue]) {
+    //  Fazer algo importante
+    return;
+  }
+  // Fazer outra coisa importante
+}
+```
+
+Eis uma situação em que uma bisecção é aceitável:
+
+**Exemplo:**
+```objc
+- (void)someMethod
+{
+  if ([someOther boolValue]) {
+    // Fazer algo importante
+  } else {
+    // Fazer outra coisa importante
+  }
+  // Fazer isto de qualquer forma
+}
+```
+
+O objectivo é fazer com que o código na margem esquerda seja o código "esperado", e que o código indentado seja a excepção. Consistência nesta área é importante para a leitura do código.
 
 ## Processamento de Erros
 
@@ -342,7 +413,7 @@ Nomes de imagens deverão ser consistentes para preservar organização e a sani
 
 Imagens que são utilizadas para um propósito semelhante deverão ser agrupadas em assets de xcode.
 
-## Boleanas
+## Boleanos
 
 Considerando que `nil` é equivalente a `NO`, não é necessário compará-los numa condição. Nunca compare nada a  `YES`, porque `YES` está definido como 1 e um `BOOL` pode ter até 8 bits.
 
@@ -409,3 +480,7 @@ Isso previnirá [crashes possíveis](http://cocoasamurai.blogspot.com/2011/04/si
 Os ficheiros físicos deversão ser mantidos em sincronia com o projecto Xcode, para evitar a desorganização. Grupos de Xcode deverão estar associados a directórios no sistema de ficheiros. Código deverá ser agrupado não só por tipo, como por funcionalidade.
 
 Sempre que possível, active o "Treat Warnings as Errors" nos settings de build, e active o máximo possível de [avisos opcionais](http://boredzo.org/blog/archives/2009-11-07/warnings). Se precisar de ignorar um aviso específico, utilize um [pragma de Clang](http://clang.llvm.org/docs/UsersManual.html#controlling-diagnostics-via-pragmas).
+
+## Escuteiro
+
+Sempre que estiver a fazer alterações no código, deixe-o mais limpo do que o encontrou. Se encontrar código que viole este guia, corrija-o. Se o código é antigo, actualize-o.
