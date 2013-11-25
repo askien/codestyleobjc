@@ -15,6 +15,7 @@ Aqui estão alguns documentos da Apple que contribuíram para a formação do gu
 
 ## Conteúdo
 
+* [Encoding](#encoding)
 * [Língua](#language)
 * [Sintaxe de Dot-Notation](#dot-notation-syntax)
 * [Espaçamento](#spacing)
@@ -38,6 +39,10 @@ Aqui estão alguns documentos da Apple que contribuíram para a formação do gu
 * [Singletons](#singletons)
 * [Projecto Xcode](#xcode-project)
 * [Escuteiro](#boyscout)
+
+## Encoding
+
+Todos os ficheiros de código fonte devem estar codificados em UTF-8.
 
 ## Língua
 
@@ -75,6 +80,13 @@ if (user.isHappy) {
 ```
 * Deverá existir exactamente uma linha em branco entre métodos para ajudar na claridade visual e organização. Espaço em branco dentro de métodos deverá separar funcionalidade, mas frequentemente isso é um indicador de que o código deverá residir noutro método.
 * `@synthesize` e `@dynamic` devem ser declarados em linhas novas na implementation.
+* Utilizar `#pragma mark`s para demarcar partes funcionais do mesmo ficheiro de código fonte. Preceder demarcações com um `#pragma mark #` para gerar uma linha.
+
+**Exemplo:**
+```objc
+#pragma #
+#pragma mark - Datasource methods
+``` 
 
 ## Condicionais
 
